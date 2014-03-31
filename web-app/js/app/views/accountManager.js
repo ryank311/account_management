@@ -8,12 +8,12 @@ define(['jquery', 'backbone', 'views/accountTable', 'collections/accountList'],
 
         initialize: function () {
             this.listenTo(AccountList, 'add', this.add);
+            //this.listenTo(AccountList, 'reset', this.reset);
             this.listenTo(AccountList, 'remove', this.remove);
             this.listenTo(AccountList, 'change:completed', this.changed);
             this.listenTo(AccountList, 'all', this.render);
-            AccountList.fetch({reset:true});
             var accountTable = new AccountTable({model: AccountList});
-            accountTable.render(AccountList);
+            AccountList.fetch({reset:true});
         },
 
         render: function () {

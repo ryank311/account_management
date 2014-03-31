@@ -14,14 +14,14 @@ requirejs.config({
     },
 
     shim: {
-        'underscore-min': {
+        'underscore': {
             exports: '_'
         },
-        'backbone-min': {
+        'backbone': {
             deps: ['underscore', 'jquery'],
             exports: 'Backbone'
         },
-        'jquery.dataTables.min': {
+        'datatables': {
             deps: ['jquery']
         }
     }
@@ -32,6 +32,5 @@ require(['jquery', 'backbone', 'views/accountManager', 'routers/router'],
     // Initialize routing and start Backbone.history()
     new Workspace();
     Backbone.history.start();
-    
     new AccountManager();
 });

@@ -9,10 +9,10 @@ define(['jquery', 'datatables', 'backbone', 'collections/accountList'], function
             this.listenTo(this.model, 'change', this.render);
             this.listenTo(this.model, 'destroy', this.remove);
             this.listenTo(this.model, 'visible', this.toggleVisible);
+            this.listenTo(this.model, 'reset', this.reset);
         },
 
-        render: function () {
-
+        reset: function() {
             $('#accountList').dataTable({
                 "aaData":  this.model.convertModelToTableData(),
                 "aoColumns": [
@@ -21,6 +21,10 @@ define(['jquery', 'datatables', 'backbone', 'collections/accountList'], function
                     { "sTitle": "Date of Birth" }
                 ]
             });
+        },
+
+        render: function () {
+
         },
 
         add: function() {

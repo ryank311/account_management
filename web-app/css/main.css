@@ -73,10 +73,12 @@ a:hover, a:active {
 }
 
 h1 {
-	color: #48802c;
+	color: #FCFCFC;
 	font-weight: normal;
-	font-size: 1.25em;
-	margin: 0.8em 0 0.3em 0;
+	font-size: 2.0em;
+	margin: 0.8em 0.3em 0.3em 0.5em;
+	padding-top: 0.8em;
+	padding-bottom: 0.8em;
 }
 
 ul {
@@ -593,4 +595,38 @@ th:hover, tr:hover {
 a.skip {
 	position: absolute;
 	left: -9999px;
+}
+
+#accountList_filter, #accountList_info {
+	float: right;
+}
+
+#accountList_length, #accountList_paginate {
+	float: left;
+}
+
+#accountList_filter, #accountList_length {
+	margin-bottom: 12px;
+}
+
+.banner {
+	margin-bottom: 16px;
+}
+
+#page-body {
+	margin: 0px 12px;
+	padding-bottom: 12px;
+}
+
+#accountList_paginate a {
+	margin-right: 12px;
+	cursor: pointer; cursor: hand;
+}
+
+.paginate_disabled_next, .paginate_disabled_previous, .paginate_disabled_next:hover, .paginate_disabled_previous:hover {
+	color: #CFCFCF;
+}
+
+.right {
+	float: right;
 }
