@@ -1,8 +1,10 @@
 <div id="account-create-container"  class="hidden">
       <div id="create-account" class="content scaffold-create" role="main">
 			<h1>Create Account</h1>
-			<form >
-				<fieldset class="form" id="create_account_form">
+			<div id="form_errors">
+			</div>
+			<form id="create_account_form">
+				<fieldset class="form">
 					<div class="fieldcontain  ">
 					<label for="dateOfBirth">
 						Date Of Birth
@@ -271,13 +273,12 @@
 					<div class="fieldcontain  ">
 					<label for="name">
 						Name
-						
 					</label>
 					<input type="text" name="name" value="" id="name">
 				</div>
 			</fieldset>
 			<fieldset class="buttons">
-				<input type="submit" name="create" class="save" value="Create" id="create">
+				<button type='button' id="create">Confirm</button>
 			</fieldset>
 		</form>
 	</div>

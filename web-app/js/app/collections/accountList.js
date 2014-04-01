@@ -1,7 +1,7 @@
-define(['backbone', 'models/account', 'views/accountEditView'], function(Backbone, Account, AccountEditView) {
+define(['backbone', 'models/account'], function(Backbone, Account) {
 	"use strict"
 	var AccountList = Backbone.Collection.extend({
-		url: '/account_management/account/index.json',
+		url: '/account_management/account/index.json?offset=0&max=500',
         
         model: Account,
 
@@ -9,8 +9,7 @@ define(['backbone', 'models/account', 'views/accountEditView'], function(Backbon
             var data = [];
             var counter = 0;
             this.each(function(account){
-                var view = new AccountEditView({ model: account });
-                data[counter] = [account.attributes.name, account.attributes.email, account.attributes.dateOfBirth, view.render().el.outerHTML];
+                data[counter] = account.convertToTableData();
                 counter++;
             });
             return data;

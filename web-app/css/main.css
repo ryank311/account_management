@@ -657,3 +657,8 @@ a.skip {
 	z-index: 1001;
 	text-align:center;
 }
+
+.errorMessage {
+	text-align: left;
+	color: red;
+}

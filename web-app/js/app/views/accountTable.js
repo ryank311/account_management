@@ -4,6 +4,7 @@ define(['jquery', 'datatables', 'backbone', 'collections/accountList'], function
         el: '#accountList',
 
         initialize: function () {
+            this.listenTo(this.model, 'add', this.add);
             this.listenTo(this.model, 'change', this.render);
             this.listenTo(this.model, 'destroy', this.remove);
             this.listenTo(this.model, 'visible', this.toggleVisible);
@@ -26,8 +27,8 @@ define(['jquery', 'datatables', 'backbone', 'collections/accountList'], function
 
         },
 
-        add: function() {
-            alert("Added account");
+        add: function(account) {
+            $('#accountList').dataTable().fnAddData( account.convertToTableData());
         },
 
         remove: function() {

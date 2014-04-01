@@ -7,9 +7,9 @@ define(['jquery', 'backbone', 'views/accountTable', 'collections/accountList', '
         events: {},
 
         initialize: function () {
-            this.listenTo(AccountList, 'add', this.add);
+            //this.listenTo(AccountList, 'add', this.add);
             //this.listenTo(AccountList, 'reset', this.reset);
-            this.listenTo(AccountList, 'remove', this.remove);
+            //this.listenTo(AccountList, 'remove', this.remove);
             this.listenTo(AccountList, 'change:completed', this.changed);
             this.listenTo(AccountList, 'all', this.render);
             var accountTable = new AccountTable({model: AccountList});
