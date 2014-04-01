@@ -25,8 +25,8 @@ define(['jquery', 'datatables', 'backbone', 'models/account'], function($, dataT
 			newAccount.save(null, {
 				success: function(model, response) {
 					accountList.add(model);
-				    $('#overlay').toggleClass('hidden');
-					$('#account-create-container').toggleClass('hidden');
+				    $('#overlay').addClass('hidden');
+					$('#account-create-container').addClass('hidden');
 				},
 				error: function(model, response) {
 					$('#form_errors').removeClass('hidden');
@@ -44,19 +44,17 @@ define(['jquery', 'datatables', 'backbone', 'models/account'], function($, dataT
 			var modelId = $('#accountId').val();
 			var account = this.model.get(modelId);
 			var unindexed_array = this.$el.serializeArray();
+			var map = {};
 			$.map(unindexed_array, function(n, i){
 				var attribute = n['name'];
 				var value = n['value'];
-				var map = {};
 				map[attribute] = value;
-				account.set(map);
 			});
-			var accountList = this.model;
+			account.set(map);
 			account.save(null, {
 				success: function(model, response) {
-					accountList.add(model);
-				    $('#overlay').toggleClass('hidden');
-					$('#account-create-container').toggleClass('hidden');
+				    $('#overlay').addClass('hidden');
+					$('#account-create-container').addClass('hidden');
 				},
 				error: function(model, response) {
 					$('#form_errors').removeClass('hidden');
