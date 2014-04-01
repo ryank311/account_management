@@ -1,35 +1,28 @@
-define(['jquery', 'datatables', 'backbone', 'models/account'], function($, dataTables, Backbone, Account) {
+define(['jquery', 'datatables', 'backbone', 'models/account', 'views/accountUpdateView'], 
+	function($, dataTables, Backbone, Account, AccountUpdateView) {
 	"use strict"
 	var AccountEditViewTable = Backbone.View.extend({
-		tagName: 'div',
-		className: "editItem",
+		
+		el: '#accountList',
 
 		events: {
 			'click .edit': 'edit',
 			'click .delete': 'delete'
 		},
-
-		initialize: function() {
-	    	this.on('render', this.afterRender);
+		
+		edit: function(event) {
+			var editId = event.target.id;
+			var id = editId.substring(4);
+			var editModel = this.model.get(id);
+			var accountUpdateView = new AccountUpdateView({model: editModel});
+			accountUpdateView.showDialog(editModel);
 		},
 
-		render: function() {
-			var html = '<div class="editItem' + this.model.attributes.id + '"></div>';
-			this.$el.html(html);
-		return this;
-		},
-
-		afterRender: function() {
-			$('.editItem' + this.model.attributes.id).append(this.$el);
-			alert("after Render");
-		},
-
-		edit: function() {
-			alert("Editing");
-		},
-
-		delete: function() {
-			alert("Deleting");
+		delete: function(event) {
+			var deleteId = event.target.id;
+			var id = deleteId.substring(6);
+			var model = this.model.get(id);
+			model.destroy();
 		}
 	});
 

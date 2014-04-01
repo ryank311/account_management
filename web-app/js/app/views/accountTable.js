@@ -1,11 +1,12 @@
-define(['jquery', 'datatables', 'backbone', 'collections/accountList'], function($, dataTables, Backbone, AccountList) {
+define(['jquery', 'datatables', 'backbone', 'collections/accountList', 'views/accountEditView'], 
+    function($, dataTables, Backbone, AccountList, AccountEditView) {
 	"use strict"
     var AccountTable = Backbone.View.extend({
         el: '#accountList',
 
         initialize: function () {
             this.listenTo(this.model, 'add', this.add);
-            this.listenTo(this.model, 'change', this.render);
+            this.listenTo(this.model, 'change', this.changed);
             this.listenTo(this.model, 'destroy', this.remove);
             this.listenTo(this.model, 'visible', this.toggleVisible);
             this.listenTo(this.model, 'reset', this.reset);
@@ -21,22 +22,23 @@ define(['jquery', 'datatables', 'backbone', 'collections/accountList'], function
                     { "sTitle": "Edit"}
                 ]
             });
-        },
-
-        render: function () {
-
+            var view = new AccountEditView({ model: this.model });
         },
 
         add: function(account) {
-            $('#accountList').dataTable().fnAddData( account.convertToTableData());
+            $('#accountList').dataTable().fnAddData(account.convertToTableData());
         },
 
-        remove: function() {
-            alert("Removed account");
+        remove: function(account) {
+            var tr = $('.editItem' + account.attributes.id).closest('tr');
+            var nRow = tr[0];
+            $('#accountList').dataTable().fnDeleteRow(nRow);
         },
 
-        changed: function() {
-            alert("Changed account");
+        changed: function(account) {
+            var tr = $('.editItem' + account.attributes.id).closest('tr');
+            var nRow = tr[0];
+            $('#accountList').dataTable().fnUpdate(account.convertToTableData(), nRow);
         }
         
     });
