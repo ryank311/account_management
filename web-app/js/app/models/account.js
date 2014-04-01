@@ -3,9 +3,9 @@ define(['backbone'], function(Backbone) {
 	var Account = Backbone.Model.extend({
 
         methodToURL: {
-            'read': '/account_management/account/',
+            'read': '/account_management/account/show/',
             'create': '/account_management/account/save.json',
-            'update': '/account_management/account/update',
+            'update': '/account_management/account/update/',
             'delete': '/account_management/account/delete/'
         },
 
@@ -13,6 +13,12 @@ define(['backbone'], function(Backbone) {
             options = options || {};
             options.url = model.methodToURL[method.toLowerCase()];
             if(method.toLowerCase() === 'delete') {
+                options.url = options.url + model.attributes.id + '.json';
+            }
+            if(method.toLowerCase() === 'update') {
+                options.url = options.url + model.attributes.id + '.json';
+            }
+            if(method.toLowerCase() === 'read') {
                 options.url = options.url + model.attributes.id + '.json';
             }
             return Backbone.sync.apply(this, arguments);

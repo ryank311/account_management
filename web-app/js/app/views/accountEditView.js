@@ -9,6 +9,7 @@ define(['jquery', 'datatables', 'backbone', 'models/account', 'views/accountUpda
 			'click .edit': 'edit',
 			'click .delete': 'delete'
 		},
+		
 		edit: function(event) {
 			var editId = event.target.id;
 			var id = editId.substring(4);

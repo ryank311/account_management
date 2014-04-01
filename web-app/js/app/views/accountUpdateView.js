@@ -4,20 +4,23 @@ define(['jquery', 'datatables', 'backbone', 'models/account'], function($, dataT
     el: '#pageContainer',
 
     events: {
-      'click .update': 'update',
+      'click .update': 'showDialog',
       'click #closeButton' : 'cancel'
     },
 
     showDialog: function() {
       $('#create_account_form')[0].reset();
       $('#dialog_title').text('Update Account');
-      $('#overlay').toggleClass('hidden');
-      $('#account-create-container').toggleClass('hidden');
+      $('#overlay').removeClass('hidden');
+      $('#update_button').removeClass('hidden');
+      $('#create_button').addClass('hidden');
+      //Pre-Pop fields.
+      $('#account-create-container').removeClass('hidden');
     },
 
     cancel: function() {
-      $('#overlay').toggleClass('hidden');
-      $('#account-create-container').toggleClass('hidden');
+      $('#overlay').addClass('hidden');
+      $('#account-create-container').addClass('hidden');
     }
 
   });

@@ -279,7 +279,8 @@
 				</div>
 			</fieldset>
 			<fieldset class="buttons">
-				<button type='button' id="create">Confirm</button>
+				<button type='button' id="create_button">Create</button>
+				<button type='button' id="update_button">Update</button>
 			</fieldset>
 		</form>
 	</div>
