@@ -1,4 +1,5 @@
-define(['jquery', 'datatables', 'backbone', 'collections/accountList'], function($, dataTables, Backbone, AccountList) {
+define(['jquery', 'datatables', 'backbone', 'collections/accountList', 'views/accountEditView'], 
+    function($, dataTables, Backbone, AccountList, AccountEditView) {
 	"use strict"
     var AccountTable = Backbone.View.extend({
         el: '#accountList',
@@ -21,6 +22,7 @@ define(['jquery', 'datatables', 'backbone', 'collections/accountList'], function
                     { "sTitle": "Edit"}
                 ]
             });
+            var view = new AccountEditView({ model: this.model });
         },
 
         render: function () {
@@ -31,8 +33,10 @@ define(['jquery', 'datatables', 'backbone', 'collections/accountList'], function
             $('#accountList').dataTable().fnAddData( account.convertToTableData());
         },
 
-        remove: function() {
-            alert("Removed account");
+        remove: function(account) {
+            var tr = $('.editItem' + account.attributes.id).closest('tr');
+            var nRow = tr[0];
+            $('#accountList').dataTable().fnDeleteRow(nRow);
         },
 
         changed: function() {

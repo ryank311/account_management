@@ -478,6 +478,10 @@ tfoot th:hover {
 	background: #efefef;
 }
 
+table {
+	clear: both;
+}
+
 /* PAGINATION */
 
 .pagination {
@@ -661,4 +665,16 @@ a.skip {
 .errorMessage {
 	text-align: left;
 	color: red;
+}
+
+.edit {
+	margin-right: 6px;
+}
+
+#closeButton {
+	float: right;
+}
+
+#closeButton:hover {
+	cursor: pointer; cursor: hand;
 }

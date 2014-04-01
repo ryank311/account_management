@@ -1,6 +1,7 @@
 <div id="account-create-container"  class="hidden">
       <div id="create-account" class="content scaffold-create" role="main">
-			<h1>Create Account</h1>
+			<div id="closeButton"><g:img uri="/images/x-icon.png"/></div>
+			<h1 id="dialog_title">Create Account</h1>
 			<div id="form_errors">
 			</div>
 			<form id="create_account_form">
