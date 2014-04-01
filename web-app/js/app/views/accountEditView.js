@@ -15,7 +15,7 @@ define(['jquery', 'datatables', 'backbone', 'models/account', 'views/accountUpda
 			var id = editId.substring(4);
 			var editModel = this.model.get(id);
 			var accountUpdateView = new AccountUpdateView({model: editModel});
-			accountUpdateView.showDialog();
+			accountUpdateView.showDialog(editModel);
 		},
 
 		delete: function(event) {

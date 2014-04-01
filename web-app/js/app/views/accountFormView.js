@@ -41,17 +41,18 @@ define(['jquery', 'datatables', 'backbone', 'models/account'], function($, dataT
 
 		update: function() {
 			$('#form_errors').addClass('hidden');
-			var newAccount = new Account();
+			var modelId = $('#accountId').val();
+			var account = this.model.get(modelId);
 			var unindexed_array = this.$el.serializeArray();
 			$.map(unindexed_array, function(n, i){
 				var attribute = n['name'];
 				var value = n['value'];
 				var map = {};
 				map[attribute] = value;
-				newAccount.set(map);
+				account.set(map);
 			});
 			var accountList = this.model;
-			newAccount.save(null, {
+			account.save(null, {
 				success: function(model, response) {
 					accountList.add(model);
 				    $('#overlay').toggleClass('hidden');
