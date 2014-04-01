@@ -38,7 +38,9 @@ define(['jquery', 'datatables', 'backbone', 'collections/accountList', 'views/ac
         changed: function(account) {
             var tr = $('.editItem' + account.attributes.id).closest('tr');
             var nRow = tr[0];
-            $('#accountList').dataTable().fnUpdate(account.convertToTableData(), nRow);
+            if(nRow !== undefined && nRow !== null) {
+                $('#accountList').dataTable().fnUpdate(account.convertToTableData(), nRow);
+            }
         }
         
     });
