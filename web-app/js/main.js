@@ -10,7 +10,7 @@ requirejs.config({
         jquery: '../lib/jquery-2.1.0.min',
         underscore: '../lib/underscore-min',
         backbone: '../lib/backbone-min',
-        datatables: '../lib/jquery.dataTables.min',
+        datatables: '../lib/jquery.dataTables.min'
     },
 
     shim: {

@@ -1,7 +1,7 @@
 define(['backbone', 'models/account'], function(Backbone, Account) {
 	"use strict"
 	var AccountList = Backbone.Collection.extend({
-		url: '/account_management/account/index.json',
+		url: '/account_management/account/index.json?offset=0&max=500',
         
         model: Account,
 
@@ -9,7 +9,7 @@ define(['backbone', 'models/account'], function(Backbone, Account) {
             var data = [];
             var counter = 0;
             this.each(function(account){
-                data[counter] = [account.attributes.name, account.attributes.email, account.attributes.dateOfBirth];
+                data[counter] = account.convertToTableData();
                 counter++;
             });
             return data;

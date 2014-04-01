@@ -19,14 +19,16 @@
 		<r:layoutResources />
 	</head>
 	<body>
-		<div id="grailsLogo" role="banner" class="banner">
-			<h1>Account Manager</h1>
+		<div id="pageContainer">
+			<div id="grailsLogo" role="banner" class="banner">
+				<h1>Account Manager</h1>
+			</div>
+			<g:layoutBody/>
+			<div class="footer" role="contentinfo">
+				<p class="smallText right">Find the source on <a href="https://github.com/ryank311/account_management">github</a>.  Or e-mail me <a href="mailto:ryan.mitchell.king@gmail.com?Subject=Grails Account Manager">ryan.mitchell.king@gmail.com</a>
+			</div>
+			<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
 		</div>
-		<g:layoutBody/>
-		<div class="footer" role="contentinfo">
-			<p class="smallText right">Find the source on <a href="https://github.com/ryank311/account_management">github</a>.  Or e-mail me <a href="mailto:ryan.mitchell.king@gmail.com?Subject=Grails Account Manager">ryan.mitchell.king@gmail.com</a>
-		</div>
-		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
 		<r:layoutResources />
 		</script>
 	</body>

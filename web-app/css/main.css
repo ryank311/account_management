@@ -11,17 +11,7 @@ h1, h2, h3, h4, h5, h6 {
 /* BASE LAYOUT */
 
 html {
-	background-color: #ddd;
-	background-image: -moz-linear-gradient(center top, #aaa, #ddd);
-	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #aaa), color-stop(1, #ddd));
-	background-image: linear-gradient(top, #aaa, #ddd);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr = '#aaaaaa', EndColorStr = '#dddddd');
-	background-repeat: no-repeat;
 	height: 100%;
-	/* change the box model to exclude the padding from the calculation of 100% height (IE8+) */
-	-webkit-box-sizing: border-box;
-	   -moz-box-sizing: border-box;
-	        box-sizing: border-box;
 }
 
 html.no-cssgradients {
@@ -37,18 +27,26 @@ html * {
 }
 
 body {
-	background: #ffffff;
-	color: #333333;
-	margin: 0 auto;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	background-color: #91A29E;
+}
+
+#pageContainer {
+	background: #E2E2E2;
+	color: #424347;
+	margin: 0.8em auto;
 	max-width: 960px;
+	border-radius:4px;
 	overflow-x: hidden; /* prevents box-shadow causing a horizontal scrollbar in firefox when viewport < 960px wide */
-	   -moz-box-shadow: 0 0 0.3em #255b17;
-	-webkit-box-shadow: 0 0 0.3em #255b17;
-	        box-shadow: 0 0 0.3em #255b17;
+	   -moz-box-shadow: 0 0 0.3em #2C3034;
+	-webkit-box-shadow: 0 0 0.3em #2C3034;
+	        box-shadow: 0 0 0.3em #2C3034;
 }
 
 #grailsLogo {
-	background-color: #abbf78;
+	background-color: #B4CCA7;
 }
 
 /* replace with .no-boxshadow body if you have modernizr available */
@@ -72,11 +70,11 @@ a:hover, a:active {
 	outline: none; /* prevents outline in webkit on active links but retains it for tab focus */
 }
 
-h1 {
-	color: #FCFCFC;
+.banner h1 {
+	color: #3E7067;
 	font-weight: normal;
 	font-size: 2.0em;
-	margin: 0.8em 0.3em 0.3em 0.5em;
+	margin: 0.0em 0.3em 0.3em 0.5em;
 	padding-top: 0.8em;
 	padding-bottom: 0.8em;
 }
@@ -110,7 +108,7 @@ img {
 }
 
 .footer {
-	background: #abbf78;
+	background: #B4CCA7;
 	color: #000;
 	clear: both;
 	font-size: 0.8em;
@@ -208,8 +206,7 @@ img {
 
 fieldset,
 .property-list {
-	margin: 0.6em 1.25em 0 1.25em;
-	padding: 0.3em 1.8em 1.25em;
+	
 	position: relative;
 	zoom: 1;
 	border: none;
@@ -428,10 +425,6 @@ td, th {
 
 th {
 	background-color: #efefef;
-	background-image: -moz-linear-gradient(top, #ffffff, #eaeaea);
-	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffffff), color-stop(1, #eaeaea));
-	    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr = '#ffffff', EndColorStr = '#eaeaea');
-	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#ffffff', EndColorStr='#eaeaea')";
 	color: #666666;
 	font-weight: bold;
 	line-height: 1.7em;
@@ -479,6 +472,10 @@ th.desc a {
 
 th:hover, tr:hover {
 	background: #E1F2B6;
+}
+
+tfoot th:hover {
+	background: #efefef;
 }
 
 /* PAGINATION */
@@ -629,4 +626,39 @@ a.skip {
 
 .right {
 	float: right;
+}
+
+.hidden {
+	display: none;
+}
+
+#overlay {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width:100%;
+	height:100%;
+	text-align:center;
+	z-index: 1000;
+	background-color:#666666;
+	opacity:0.4;
+}
+
+#account-create-container {
+	position: absolute;
+	top: 0px;
+	width: 640px;
+	margin-top: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #fff;
+	border:1px solid #000;
+	padding:15px;
+	z-index: 1001;
+	text-align:center;
+}
+
+.errorMessage {
+	text-align: left;
+	color: red;
 }
