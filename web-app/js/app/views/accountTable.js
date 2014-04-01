@@ -2,8 +2,6 @@ define(['jquery', 'datatables', 'backbone', 'collections/accountList'], function
 	"use strict"
     var AccountTable = Backbone.View.extend({
         el: '#accountList',
-        
-        events: {},
 
         initialize: function () {
             this.listenTo(this.model, 'change', this.render);
@@ -16,9 +14,10 @@ define(['jquery', 'datatables', 'backbone', 'collections/accountList'], function
             $('#accountList').dataTable({
                 "aaData":  this.model.convertModelToTableData(),
                 "aoColumns": [
-                    { "sTitle": "Name" },
+                    { "sTitle": "Name", "sWidth": '25%' },
                     { "sTitle": "Email" },
-                    { "sTitle": "Date of Birth" }
+                    { "sTitle": "Date of Birth" },
+                    { "sTitle": "Edit"}
                 ]
             });
         },

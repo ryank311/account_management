@@ -8,6 +8,20 @@ define([
 
 	var AccountRouter = Backbone.Router.extend({
 		routes: {
+			"edit/:accountId": "edit",
+			"create": "create",
+			"delete/:accountId": "delete"
+		},
+
+		edit: function(accountId) {
+
+		},
+
+		create: function() {
+
+		},
+
+		delete: function(accountId) {
 			
 		}
 	});
